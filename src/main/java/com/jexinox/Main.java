@@ -44,10 +44,9 @@ public class Main {
         var course = courseParser.Parse(csv, "java");
 
         var mongo = new MongoWriter("localhost", 27017, "courseAnalyzer");
+
         mongo.WriteCourse(course);
 
         var mongoRead = new MongoReader("localhost", 27017, "courseAnalyzer");
-
-        System.out.println(mongoRead.ReadCourse("java").getStudents().get(24).getName());
     }
 }
